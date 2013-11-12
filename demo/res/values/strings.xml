@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Infinite Scroll Listview Demo</string>
+    <string name="loading">Loading data&#8230;</string>
+    <string name="ordered">ordered</string>
+    <string name="scroll_to_bottom">Scroll to bottom</string>
+    <string name="scroll_to_top">Scroll to top</string>
+    <string name="loading_mode">Loading Mode</string>
+	<string name="stop_position">Stop Position</string>
+	<string name="start_of_list">Start of List</string>
+	<string name="end_of_list">End of List</string>
+	<string name="remain_unchanged">Unchanged</string>
+	<string name="github">Github</string>
+
+</resources>

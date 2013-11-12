@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView 
+        android:id="@+id/infinite_listview_text_loading_mode"
+       	android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+        android:text="@string/loading_mode"
+        android:textSize="18sp" />
+    <RadioGroup
+		android:id="@+id/infinite_listview_radiogroup_loading_mode"
+		android:labelFor="@+id/infinite_listview_text_loading_mode"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/infinite_listview_text_loading_mode"
+	    android:orientation="horizontal">
+	    <RadioButton android:id="@+id/infinite_listview_radio_scroll_to_bottom"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/scroll_to_bottom"
+	        android:textSize="16sp" />
+	    <RadioButton android:id="@+id/infinite_listview_radio_scroll_to_top"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/scroll_to_top"
+	        android:textSize="16sp" />
+	</RadioGroup>
+	<TextView 
+        android:id="@+id/infinite_listview_text_stop_position"
+       	android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/infinite_listview_radiogroup_loading_mode"
+        android:text="@string/stop_position"
+        android:textSize="18sp" />
+    <RadioGroup
+		android:id="@+id/infinite_listview_radiogroup_stop_position"
+		android:labelFor="@+id/infinite_listview_text_stop_position"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/infinite_listview_text_stop_position"
+	    android:orientation="horizontal">
+	    <RadioButton android:id="@+id/infinite_listview_radio_start_of_list"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/start_of_list"
+	        android:textSize="16sp" />
+	    <RadioButton android:id="@+id/infinite_listview_radio_end_of_list"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/end_of_list"
+	        android:textSize="16sp" />
+		<RadioButton android:id="@+id/infinite_listview_radio_remain_unchanged"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/remain_unchanged"
+	        android:textSize="16sp" />
+	</RadioGroup>
+	<ImageView
+	    android:id="@+id/infinite_listview_imageview_github"
+	    android:contentDescription="@string/github"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="5dp"
+	    android:layout_marginBottom="5dp"
+	    android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+	    android:src="@drawable/ic_github"/>
+	<ca.weixiao.widget.InfiniteScrollListView
+        android:id="@+id/infinite_listview_infinitescrolllistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:layout_below="@+id/infinite_listview_radiogroup_stop_position"
+		android:layout_above="@+id/infinite_listview_imageview_github" />
+</RelativeLayout>
