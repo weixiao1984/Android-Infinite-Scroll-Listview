@@ -48,16 +48,23 @@ public View getInfiniteScrollListView(int position, View convertView, ViewGroup 
 	}
 	return convertView;
 }
+```
 
 #### 3. Activity class
 
+1. Loading Mode
 * Either the list view scrolls to the top or the bottom
 * Use setLoadingMode(LoadingMode loadingMode) to specify one of the following two loading modes
+``` java
 enum LoadingMode {SCROLL_TO_TOP, SCROLL_TO_BOTTOM};
+```
 
+2. Stop Position 
 * When the data loading finishes, stop position determines weather the list view should automatically scroll up to the start of the list,
 * scroll down to the end of the list, or remains where it was
 * Use setStopPosition(StopPosition stopPosition) to specify one of the following three stop positions
+``` java
 enum StopPosition {START_OF_LIST, END_OF_LIST, REMAIN_UNCHANGED}
+```
 
-* Use AsyncTask or IntentService to process your data, as shown in the demo code https://github.com/weixiao1984/Android-Infinite-Scroll-Listview/tree/master/demo
+3. Use AsyncTask or IntentService to process your data, as shown in the demo code https://github.com/weixiao1984/Android-Infinite-Scroll-Listview/tree/master/demo
