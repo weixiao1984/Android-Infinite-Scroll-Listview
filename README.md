@@ -28,6 +28,7 @@ Support Android API Level 8+
 
  * Create an adapter which extends InfiniteScrollListAdapter
  * Inside the adapter create an interface or abstract class so later actions in the view can be propagated to the customized adapter
+
 ``` java
 public static abstract class NewPageListener {
 	public abstract void onScrollNext();
