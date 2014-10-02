@@ -42,55 +42,62 @@ public abstract class InfiniteScrollListAdapter extends BaseAdapter implements O
 	protected InfiniteScrollListPageListener infiniteListPageListener;
 
 	protected abstract void onScrollNext();
+
 	public abstract View getInfiniteScrollListView(int position, View convertView, ViewGroup parent);
-	
+
 	public void setInfiniteListPageListener(InfiniteScrollListPageListener infiniteListPageListener) {
 		this.infiniteListPageListener = infiniteListPageListener;
 	}
 
 	public void lock() {
 		canScroll = false;
-	}	
+	}
+
 	public void unlock() {
 		canScroll = true;
 	}
 
-    @Override
-    public boolean isEnabled(int position) {
-    	return rowEnabled; 
-    }
+	@Override
+	public boolean isEnabled(int position) {
+		return rowEnabled;
+	}
+
 	public void setRowEnabled(boolean rowEabled) {
 		this.rowEnabled = rowEabled;
 	}
-	
+
 	public void setLoadingMode(LoadingMode loadingMode) {
 		this.loadingMode = loadingMode;
 	}
-	
+
 	public StopPosition getStopPosition() {
 		return stopPosition;
 	}
+
 	public void setStopPosition(StopPosition stopPosition) {
 		this.stopPosition = stopPosition;
 	}
 
 	@Override
 	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-		if (view instanceof InfiniteScrollListView) {
-			// In scroll-to-top-to-load mode, when the list view scrolls to the first visible position it reaches the top
-			if (loadingMode == LoadingMode.SCROLL_TO_TOP && firstVisibleItem == 0 && canScroll) {
-				onScrollNext();
-			}
-			// In scroll-to-bottom-to-load mode, when the sum of first visible position and visible count equals the total number
-			// of items in the adapter it reaches the bottom
-			if (loadingMode == LoadingMode.SCROLL_TO_BOTTOM && firstVisibleItem + visibleItemCount - 1 == getCount() && canScroll) {
-				onScrollNext();
+		if (canScroll) {
+			if (view instanceof InfiniteScrollListView) {
+				// In scroll-to-top-to-load mode, when the list view scrolls to the first visible position it reaches the top
+				if (loadingMode == LoadingMode.SCROLL_TO_TOP && firstVisibleItem == 0) {
+					onScrollNext();
+				}
+				// In scroll-to-bottom-to-load mode, when the sum of first visible position and visible count equals the total number
+				// of items in the adapter it reaches the bottom
+				if (loadingMode == LoadingMode.SCROLL_TO_BOTTOM && firstVisibleItem + visibleItemCount - 1 == getCount()) {
+					onScrollNext();
+				}
 			}
 		}
 	}
 
 	@Override
-	public void onScrollStateChanged(AbsListView view, int scrollState) {}
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+	}
 
 	@Override
 	public final View getView(int position, View convertView, ViewGroup parent) {
